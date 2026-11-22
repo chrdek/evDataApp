@@ -59,6 +59,27 @@
 
       var g = svgRoot.append("g").attr("transform","translate(" + margin.right + "," + margin.top + ")scale(0.8)");
 
+
+    // -------------------------------------------------------------------------
+    // Additional Conditional Rendering functionality for post, static get
+    // -------------------------------------------------------------------------
+
+function _render(data) {
+  if (!data) { console.error("chargingChart: failed to load", dataUrl); return; }
+  var payload = (data.data && data.data.nodes) ? data.data : data;
+  if (renderStrategy === "tree") {
+    _renderTree(svgRoot, g, zoom, payload);
+    if (legendSelector) _renderLegend(legendSelector, renderStrategy);
+  } else if (renderStrategy === "arc") {
+    var colorForLegend = _renderArc(g, payload);
+    if (legendSelector) _renderLegend(legendSelector, renderStrategy, colorForLegend);
+  } else {
+    console.error("chargingChart: renderStrategy must be 'tree' or 'arc'");
+  }
+}
+
+
+
       // POST-only guard — widget rejects requests without a well-formed JSON payload
       // DEPRECATED: Now widget supports GET (via url directly) as well.
      // _post(dataUrl, postPayload, function(data) {
@@ -79,24 +100,6 @@
         }
       });*/
     }
-
-    // -------------------------------------------------------------------------
-    // Additional Conditional Rendering functionality for post, static get
-    // -------------------------------------------------------------------------
-
-function _render(data) {
-  if (!data) { console.error("chargingChart: failed to load", dataUrl); return; }
-  var payload = (data.data && data.data.nodes) ? data.data : data;
-  if (renderStrategy === "tree") {
-    _renderTree(svgRoot, g, zoom, payload);
-    if (legendSelector) _renderLegend(legendSelector, renderStrategy);
-  } else if (renderStrategy === "arc") {
-    var colorForLegend = _renderArc(g, payload);
-    if (legendSelector) _renderLegend(legendSelector, renderStrategy, colorForLegend);
-  } else {
-    console.error("chargingChart: renderStrategy must be 'tree' or 'arc'");
-  }
-}
 
 
     // -------------------------------------------------------------------------
