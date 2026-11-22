@@ -86,11 +86,12 @@
 
 function _render(data) {
   if (!data) { console.error("chargingChart: failed to load", dataUrl); return; }
+  var payload = (data.data && data.data.nodes) ? data.data : data;
   if (renderStrategy === "tree") {
-    _renderTree(svgRoot, g, zoom, data);
+    _renderTree(svgRoot, g, zoom, payload);
     if (legendSelector) _renderLegend(legendSelector, renderStrategy);
   } else if (renderStrategy === "arc") {
-    var colorForLegend = _renderArc(g, data);
+    var colorForLegend = _renderArc(g, payload);
     if (legendSelector) _renderLegend(legendSelector, renderStrategy, colorForLegend);
   } else {
     console.error("chargingChart: renderStrategy must be 'tree' or 'arc'");
