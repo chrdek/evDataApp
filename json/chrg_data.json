@@ -1,0 +1,549 @@
+{
+    "nodes": [
+        {
+            "name": "ALMG-STRVFREE",
+            "n": 10,
+            "grp": 1,
+            "id": "ALMG-STRVFREE"
+        },
+        {
+            "name": "ALMG-EGKFREE",
+            "n": 10,
+            "grp": 1,
+            "id": "ALMG-EGKFREE"
+        },
+        {
+            "name": "EA-CENTR",
+            "n": 10,
+            "grp": 1,
+            "id": "EA-CENTR"
+        },
+        {
+            "name": "EA-NECHR",
+            "n": 10,
+            "grp": 1,
+            "id": "EA-NECHR"
+        },
+        {
+            "name": "EA-U.C",
+            "n": 10,
+            "grp": 1,
+            "id": "EA-U.C"
+        },
+        {
+            "name": "PCH-STASND",
+            "n": 10,
+            "grp": 1,
+            "id": "PCH-STASND"
+        },
+        {
+            "name": "PCH-KALL",
+            "n": 10,
+            "grp": 1,
+            "id": "PCH-KALL"
+        },
+        {
+            "name": "RUT66PRKNG",
+            "n": 10,
+            "grp": 1,
+            "id": "RUT66PRKNG"
+        },
+        {
+            "name": "ALMG-LNKAFREE",
+            "n": 5,
+            "grp": 2,
+            "id": "ALMG-LNKAFREE"
+        },
+        {
+            "name": "EA-CENTRLNKA",
+            "n": 5,
+            "grp": 2,
+            "id": "EA-CENTRLNKA"
+        },
+        {
+            "name": "RSONBLULNKA",
+            "n": 5,
+            "grp": 2,
+            "id": "RSONBLULNKA"
+        },        
+        {
+            "name": "EA-PAVLHTL",
+            "n": 2,
+            "grp": 4,
+            "id": "EA-PAVLHTL"
+        },
+        {
+            "name": "EA-AMARANDHTL",
+            "n": 2,
+            "grp": 4,
+            "id": "EA-AMARANDHTL"
+        },
+        {
+            "name": "EA-FIG",
+            "n": 3,
+            "grp": 3,
+            "id": "EA-FIG"
+        },
+        {
+            "name": "EA-FLMNGO",
+            "n": 3,
+            "grp": 3,
+            "id": "EA-FLMNGO"
+        },
+        {
+            "name": "LDL-PROT",
+            "n": 3,
+            "grp": 3,
+            "id": "LDL-PROT"
+        }
+    ],
+    "links": [
+        {
+            "source": "ALMG-STRVFREE",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "ALMG-EGKFREE",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "ALMG-STRVFREE",
+            "target": "EA-U.C",
+            "value": 10
+        },
+        {
+            "source": "ALMG-EGKFREE",
+            "target": "EA-U.C",
+            "value": 10
+        },
+        {
+            "source": "ALMG-EGKFREE",
+            "target": "EA-U.C",
+            "value": 10
+        },
+        {
+            "source": "EA-U.C",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "EA-U.C",
+            "target": "EA-NECHR",
+            "value": 10
+        },
+        {
+            "source": "EA-U.C",
+            "target": "ALMG-STRVFREE",
+            "value": 10
+        },
+        {
+            "source": "EA-U.C",
+            "target": "ALMG-EGKFREE",
+            "value": 10
+        },
+        {
+            "source": "EA-NECHR",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "PCH-STASND",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "PCH-STASND",
+            "target": "EA-U.C",
+            "value": 10
+        },
+        {
+            "source": "PCH-KALL",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "PCH-KALL",
+            "target": "EA-U.C",
+            "value": 10
+        },
+        {
+            "source": "EA-CENTR",
+            "target": "PCH-STASND",
+            "value": 10
+        },
+        {
+            "source": "ALMG-EGKFREE",
+            "target": "PCH-STASND",
+            "value": 10
+        },
+        {
+            "source": "ALMG-STRVFREE",
+            "target": "PCH-STASND",
+            "value": 10
+        },
+        {
+            "source": "RUT66PRKNG",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "RUT66PRKNG",
+            "target": "PCH-STASND",
+            "value": 10
+        },
+        {
+            "source": "EA-U.C",
+            "target": "RUT66PRKNG",
+            "value": 10
+        },
+        {
+            "source": "EA-U.C",
+            "target": "PCH-STASND",
+            "value": 10
+        },
+        {
+            "source": "ALMG-EGKFREE",
+            "target": "EA-CENTRLNKA",
+            "value": 10
+        },
+        {
+            "source": "ALMG-STRVFREE",
+            "target": "EA-CENTRLNKA",
+            "value": 10
+        },
+        {
+            "source": "ALMG-STRVFREE",
+            "target": "ALMG-LNKAFREE",
+            "value": 10
+        },
+        {
+            "source": "ALMG-EGKFREE",
+            "target": "ALMG-LNKAFREE",
+            "value": 10
+        },
+        {
+            "source": "ALMG-STRVFREE",
+            "target": "RSONBLULNKA",
+            "value": 10
+        },
+        {
+            "source": "ALMG-EGKFREE",
+            "target": "RSONBLULNKA",
+            "value": 10
+        },
+        {
+            "source": "PCH-STASND",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "EA-CENTR",
+            "target": "ALMG-LNKAFREE",
+            "value": 10
+        },
+        {
+            "source": "PCH-KALL",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "EA-CENTR",
+            "target": "ALMG-LNKAFREE",
+            "value": 10
+        },
+        {
+            "source": "EA-NECHR",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "EA-CENTR",
+            "target": "ALMG-LNKAFREE",
+            "value": 10
+        },
+        {
+            "source": "EA-CENTR",
+            "target": "PCH-KALL",
+            "value": 10
+        },
+        {
+            "source": "PCH-KALL",
+            "target": "ALMG-LNKAFREE",
+            "value": 10
+        },
+        {
+            "source": "EA-NECHR",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "EA-CENTR",
+            "target": "RSONBLULNKA",
+            "value": 10
+        },
+        {
+            "source": "EA-U.C",
+            "target": "RSONBLULNKA",
+            "value": 10
+        },
+        {
+            "source": "EA-U.C",
+            "target": "ALMG-LNKAFREE",
+            "value": 10
+        },
+        {
+            "source": "ALMG-LNKAFREE",
+            "target": "PCH-STASND",
+            "value": 10
+        },
+        {
+            "source": "ALMG-LNKAFREE",
+            "target": "PCH-KALL",
+            "value": 10
+        },
+        {
+            "source": "EA-CENTRLNKA",
+            "target": "PCH-STASND",
+            "value": 10
+        },
+        {
+            "source": "RSONBLULNKA",
+            "target": "PCH-STASND",
+            "value": 10
+        },
+        {
+            "source": "RSONBLULNKA",
+            "target": "EA-NECHR",
+            "value": 10
+        },
+        {
+            "source": "RSONBLULNKA",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "EA-CENTRLNKA",
+            "target": "PCH-KALL",
+            "value": 10
+        },
+        {
+            "source": "ALMG-STRVFREE",
+            "target": "EA-FIG",
+            "value": 10
+        },
+        {
+            "source": "ALMG-STRVFREE",
+            "target": "EA-FLMNGO",
+            "value": 10
+        },
+        {
+            "source": "ALMG-EGKFREE",
+            "target": "EA-FLMNGO",
+            "value": 10
+        },
+        {
+            "source": "ALMG-STRVFREE",
+            "target": "PCH-STASND",
+            "value": 10
+        },
+        {
+            "source": "PCH-STASND",
+            "target": "EA-FIG",
+            "value": 10
+        },
+        {
+            "source": "ALMG-EGKFREE",
+            "target": "PCH-STASND",
+            "value": 10
+        },
+        {
+            "source": "PCH-STASND",
+            "target": "EA-FIG",
+            "value": 10
+        },
+        {
+            "source": "PCH-STASND",
+            "target": "EA-FIG",
+            "value": 10
+        },
+        {
+            "source": "PCH-STASND",
+            "target": "EA-FLMNGO",
+            "value": 10
+        },
+        {
+            "source": "PCH-KALL",
+            "target": "EA-FLMNGO",
+            "value": 10
+        },
+        {
+            "source": "PCH-KALL",
+            "target": "EA-FIG",
+            "value": 10
+        },
+        {
+            "source": "PCH-KALL",
+            "target": "LDL-PROT",
+            "value": 10
+        },
+        {
+            "source": "PCH-STASND",
+            "target": "LDL-PROT",
+            "value": 10
+        },
+        {
+            "source": "ALMG-STRVFREE",
+            "target": "LDL-PROT",
+            "value": 10
+        },
+        {
+            "source": "ALMG-STRVFREE",
+            "target": "PCH-KALL",
+            "value": 10
+        },
+        {
+            "source": "PCH-KALL",
+            "target": "EA-FIG",
+            "value": 10
+        },
+        {
+            "source": "EA-U.C",
+            "target": "EA-FIG",
+            "value": 10
+        },
+        {
+            "source": "EA-U.C",
+            "target": "EA-FLMNGO",
+            "value": 10
+        },
+        {
+            "source": "ALMG-STRVFREE",
+            "target": "EA-PAVLHTL",
+            "value": 10
+        },
+        {
+            "source": "ALMG-EGKFREE",
+            "target": "EA-PAVLHTL",
+            "value": 10
+        },
+        {
+            "source": "PCH-STASND",
+            "target": "EA-PAVLHTL",
+            "value": 10
+        },
+        {
+            "source": "PCH-STASND",
+            "target": "EA-NECHR",
+            "value": 10
+        },
+        {
+            "source": "EA-NECHR",
+            "target": "EA-PAVLHTL",
+            "value": 10
+        },
+        {
+            "source": "PCH-STASND",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "EA-CENTR",
+            "target": "EA-PAVLHTL",
+            "value": 10
+        },
+        {
+            "source": "PCH-STASND",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "EA-CENTR",
+            "target": "EA-AMARANDHTL",
+            "value": 10
+        },
+        {
+            "source": "PCH-KALL",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "EA-CENTR",
+            "target": "EA-AMARANDHTL",
+            "value": 10
+        },
+        {
+            "source": "ALMG-STRVFREE",
+            "target": "EA-AMARANDHTL",
+            "value": 10
+        },
+        {
+            "source": "ALMG-EGKFREE",
+            "target": "EA-AMARANDHTL",
+            "value": 10
+        },
+        {
+            "source": "PCH-KALL",
+            "target": "EA-PAVLHTL",
+            "value": 10
+        },
+        {
+            "source": "PCH-KALL",
+            "target": "EA-AMARANDHTL",
+            "value": 10
+        },
+        {
+            "source": "ALMG-STRVFREE",
+            "target": "PCH-KALL",
+            "value": 10
+        },
+        {
+            "source": "PCH-KALL",
+            "target": "EA-AMARANDHTL",
+            "value": 10
+        },
+        {
+            "source": "ALMG-EGKFREE",
+            "target": "PCH-KALL",
+            "value": 10
+        },
+        {
+            "source": "PCH-KALL",
+            "target": "EA-AMARANDHTL",
+            "value": 10
+        },
+        {
+            "source": "EA-NECHR",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "EA-CENTR",
+            "target": "EA-AMARANDHTL",
+            "value": 10
+        },
+        {
+            "source": "EA-U.C",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "EA-CENTR",
+            "target": "EA-AMARANDHTL",
+            "value": 10
+        },
+        {
+            "source": "EA-NECHR",
+            "target": "EA-CENTR",
+            "value": 10
+        },
+        {
+            "source": "EA-CENTR",
+            "target": "EA-PAVLHTL",
+            "value": 10
+        }
+    ],
+    "attributes": {
+    }
+}

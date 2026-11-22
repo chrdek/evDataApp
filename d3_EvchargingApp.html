@@ -1,0 +1,234 @@
+<html lang="en">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>EV Charging Scenarios</title>
+
+
+<!-- Load d3.js, d3-legend library -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+
+<!-- Load color palette  etc -->
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://mbostock.github.io/d3/talk/20111018/d3/d3.layout.js"></script>
+
+<!-- Load BS v5 libraries -->
+<script src="./vendor/js/bootstrap538.bundle.min.js"></script>
+<script src="./vendor/js/bootstrap538.min.js"></script>
+
+<!-- Load extended libraries -->
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.18.1/lodash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-combinatorics@2.1.4/umd/combinatorics.min.js"></script>
+
+<script>
+function dataTranscoder() {
+var result=[];
+d3.json("/json/chrg_data.json", function(data) {
+
+let all_links = _.uniqWith(data.links,_.isEqual);
+let grp_sources1 = _.groupBy(all_links,"source");
+let grp_sources2 = _.groupBy(all_links,"target");
+
+//Combined groups to closely match the d3 graphing part..
+let all_groups =_.merge(grp_sources1,grp_sources2);
+let final_range=[]; let i=0;
+_.forEach(all_groups, (grouping) => {
+let chargers_group = "abcdefghijklmnop".substr(0,grouping.length); //From all 16 elements, select/combine etc. -> permutations/combinations etc.
+let combs = new Combinatorics.Permutation(chargers_group,2);
+let final_data = {};
+
+let allKeys = Object.keys(all_groups); //Add per index in the obj.
+let objGroupId = _.get(_.find(data.nodes,(o) => o.name == allKeys[i]),'grp'); //Retrive the appropriate Id/city, per iteration
+
+  _.set(grouping,['total_targets'], grouping.length);
+  _.set(grouping,['total_combos'], parseInt(combs.length));
+  
+  //Transform add data to new table object with range..
+  _.assignIn(final_data,{"cityId":(objGroupId === 1 ? "N": objGroupId === 2 ?"L": objGroupId === 4 ? "A.N." : objGroupId === 3 ? "P":"")},{"chargerName":allKeys[i]},_.pick(grouping,'total_targets'),_.pick(grouping,'total_combos'));
+  result.push(final_data);
+  i++;
+  });
+});
+return  result;
+}
+var tbl_update = dataTranscoder(); var total = 0;
+
+window.addEventListener("load", (event) => {
+// Continue with html table update as below..
+var main_tbl_body = document.querySelector('#data_main > table > tbody');
+tbl_update.forEach( (row) => {
+total += row.total_combos;
+//Generate,append  template-fragment to table body/ resulting row:
+const template = document.createElement("template");
+template.innerHTML =`<tr>
+      <td id="city" scope="row"></td>
+      <td id="targets"></td>
+      <td id="chargerName"></td>
+      <td id="combos"></td>
+    </tr>`;
+    
+const tbl_row  = template.content.cloneNode(true);
+tbl_row.querySelector('#city').textContent = row.cityId;
+tbl_row.querySelector('#targets').textContent = row.total_targets;
+tbl_row.querySelector('#chargerName').textContent = row.chargerName;
+tbl_row.querySelector('#combos').textContent = row.total_combos;
+
+main_tbl_body.appendChild(tbl_row); //(template.content);
+
+ });
+ 
+ var tbl_foot = document.querySelector('#data_main > table > tfoot > tr > td');
+ 
+ const footer_tmpl = document.createElement("template");
+ footer_tmpl.innerHTML = `<p id="total"></p>`;
+ 
+ const tbl_footer  = footer_tmpl.content.cloneNode(true);
+ tbl_footer.querySelector('#total').textContent = `Total Set Combinations: ${total}`;
+
+ tbl_foot.append(tbl_footer); //(footer_tmpl.content);
+ 
+});
+
+</script>
+<!--
+https://lodash.com/docs
+https://www.npmjs.com/package/js-combinatorics
+
+Basic combinatorial FORMULAE (where n=number):
+==============================================
+Permutations (All Outcomes) = fact(n_elem_in_set)/fact(n_elem_in_set - n_pairs)
+==> in example 240 for args(16,2)
+
+******************************************************************************
+NOTE: Formula below is for Combinations that do not have recurring selections,
+selections without repetition (or without repetitive selections)
+******************************************************************************
+Combinations (All Pairs) = fact(n_elem_in_set)/fact(n_pairs) * fact(n_elem_in_set - n_pairs)
+==> in example 120 for args(16,2)
+Or.. ??
+Combinations (Permutations Over # of Pairs) = Permutations/n_pairs
+==> in example 120 for args(16,2)
+-->
+
+
+<!-- Create a div where the graph will take place -->
+<!-- Bootstrap v5.0+ -->
+<body>
+<div class="row">
+
+    <div id="my_dataviz" class="col-md-9" style="max-height:685px;overflow-y:scroll; -webkit-overflow-style:none; -ms-overflow-style: none; scrollbar-width: none;">
+	<span height="100%" width="100%">
+	<!--  Revert to svg tag, for non d3-legend implementation  <svg id="svg_legend"></svg>-->
+	<div id="svg_legend" style="margin:1%"></div>
+	</span>
+	</div>
+	<div id="data_main" class="col-md-3" style="max-height:685px;overflow-y:scroll; overflow-x:scroll; -webkit-overflow-style:none; -ms-overflow-style: none;scrollbar-width: none;">
+<table style="opacity:0.6;" class="table table-hover table-dark table-striped table-sm">
+  <thead>
+    <tr>
+      <th scope="col">City</th>
+	  <th scope="col">Targets</th>
+	  <th scope="col">Charger</th>
+      <th scope="col">Combos</th>
+    </tr>
+  </thead>
+  <tbody> <!-- Dynamically updated table content goes here..-->
+ 
+  </tbody>
+ <!-- Footer Start, Toggle Buttons -->
+ <tfoot>
+     <tr>
+        <td colspan="4" class="text-center"> <!-- Dynamic footer content goes here.. -->
+ <div class="btn-group btn-toggle mb-2"> 
+	<button id="arcBtn" class="btn btn-primary active" aria-pressed="true" data-toggle="collapse" data-target="#collapsible">
+	<i class="bi bi-rainbow"></i> Arc Layout
+	</button>
+    <button id="treeBtn" class="btn btn-primary" aria-pressed="false" data-toggle="collapse" data-target="#collapsible">
+	<i class="bi bi-diagram-3"></i> Graph Layout
+	</button>
+</div>
+       </td>
+     </tr>
+ </tfoot>
+ <!-- Footer End, Toggle Buttons -->
+ 
+</table>
+	</div>
+</div>
+</body>
+
+<!--<div id="my_dataviz"></div>-->
+<!--<script src="./d3chargingArc1.js"></script>-->
+<link href="./css/d3_arcstyles.css" rel="stylesheet"/>
+<link href="./vendor/css/bootstrap538.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet" />
+<script src="./js/d3ArcWidget_v4.js"></script>
+<script>
+
+  var treeChart = chargingChart().dataUrl("/json/static_data.json")
+      .renderStrategy("tree")
+      .initialScale(0.65)
+      .initialTx(0.50)
+      .depthSpacing(420)
+      .legendSelector("#svg_legend")
+      .colorMap({
+          "N":    "#8dd3c7",
+          "L":    "#ffffb3",
+          "A.N.": "#bebada",
+          "P":    "#fb8072"
+      });
+
+
+  var arcChart = chargingChart().dataUrl("https://apollogateway-xi.vercel.app/v2/evpointsData")
+      .postPayload({"query":"query{data{ nodes {name n grp id } links { source target value} } }" }) 
+      .renderStrategy("arc")
+      .initialScale(0.65)
+      .initialTx(0.50)
+      .depthSpacing(420)
+      .legendSelector("#svg_legend");
+	  
+  var activeChart  = arcChart;
+  var arcContainer = document.getElementById("my_dataviz");
+
+  
+  const btnarc = document.getElementById("arcBtn");
+  const btntree = document.getElementById("treeBtn");
+
+    function switchChart(next) {
+      d3.select(arcContainer).selectAll("svg").remove();  // clear chart
+      d3.select("#svg_legend").selectAll("*").remove();   // clear legend
+      activeChart = next;
+      d3.select(arcContainer).call(activeChart);
+  }
+
+  
+  btnarc.addEventListener("click", function(event) {
+  if (btnarc.classList.value === "btn btn-primary active") return;
+   d3.select("#treeBtn")
+        .classed("active", false)
+        .attr("aria-pressed", "false");
+   d3.select("#arcBtn")
+        .classed("active", true)
+        .attr("aria-pressed", "true");
+		
+     switchChart(arcChart);
+  }); 
+  btntree.addEventListener("click", function(event) {
+  if (btntree.classList.value === "btn btn-primary active") return;
+   d3.select("#arcBtn")
+        .classed("active", false)
+        .attr("aria-pressed", "false");
+   d3.select("#treeBtn")
+        .classed("active", true)
+        .attr("aria-pressed", "true");
+		
+     switchChart(treeChart);
+  }); 
+   // initial render on page load
+  d3.select(arcContainer).call(activeChart);
+</script>
+
+
+</html>

@@ -1,0 +1,322 @@
+{
+    "name": "CHRGING-POINTS",
+    "children": [
+        {
+            "name": "N",
+            "children": [
+                {
+                    "name": "ALMG-STRVFREE",
+                    "children": [
+                        {
+                            "name": "EA-CENTR"
+                        },
+                        {
+                            "name": "EA-U.C"
+                        },
+                        {
+                            "name": "EA-NECHR"
+                        }
+                    ]
+                },
+                {
+                    "name": "ALMG-EGKFREE",
+                    "children": [
+                        {
+                            "name": "EA-CENTR"
+                        },
+                        {
+                            "name": "EA-U.C"
+                        },
+                        {
+                            "name": "EA-NECHR"
+                        }
+                    ]
+                },
+                {
+                    "name": "EA-U.C",
+                    "children": [
+                        {
+                            "name": "PCH-STASND"
+                        },
+                        {
+                            "name": "PCH-KALL"
+                        },
+                        {
+                            "name": "RUT66PRKNG"
+                        }
+                    ]
+                },
+                {
+                    "name": "EA-NECHR",
+                    "children": [
+                        {
+                            "name": "PCH-STASND"
+                        },
+                        {
+                            "name": "PCH-KALL"
+                        }
+                    ]
+                },
+                {
+                    "name": "EA-CENTR",
+                    "children": [
+                        {
+                            "name": "PCH-STASND"
+                        },
+                        {
+                            "name": "PCH-KALL"
+                        },
+                        {
+                            "name": "RUT66PRKNG"
+                        }
+                    ]
+                },
+                {
+                    "name": "PCH-STASND",
+                    "children": [
+                        {
+                            "name": "RUT66PRKNG"
+                        }
+                    ]
+                },
+                {
+                    "name": "PCH-KALL",
+                    "children": [
+                        {
+                            "name": "RUT66PRKNG"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "L",
+            "children": [
+                {
+                    "name": "ALMG-LNKAFREE",
+                    "children": [
+                        {
+                            "name": "PCH-STASND"
+                        },
+                        {
+                            "name": "PCH-KALL"
+                        },
+                        {
+                            "name": "EA-CENTR"
+                        },
+                        {
+                            "name": "EA-NECHR"
+                        },
+                        {
+                            "name": "EA-U.C"
+                        }
+                    ]
+                },
+                {
+                    "name": "EA-CENTRLNKA",
+                    "children": [
+                        {
+                            "name": "PCH-STASND"
+                        },
+                        {
+                            "name": "PCH-KALL"
+                        },
+                        {
+                            "name": "EA-CENTR"
+                        },
+                        {
+                            "name": "EA-NECHR"
+                        },
+                        {
+                            "name": "EA-U.C"
+                        }
+                    ]
+                },
+                {
+                    "name": "RSONBLULNKA",
+                    "children": [
+                        {
+                            "name": "PCH-STASND"
+                        },
+                        {
+                            "name": "PCH-KALL"
+                        },
+                        {
+                            "name": "EA-CENTR"
+                        },
+                        {
+                            "name": "EA-NECHR"
+                        },
+                        {
+                            "name": "EA-U.C"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "A.N.",
+            "children": [
+                {
+                    "name": "EA-PAVLHTL",
+                    "children": [
+                        {
+                            "name": "PCH-STASND"
+                        },
+                        {
+                            "name": "PCH-KALL"
+                        },
+                        {
+                            "name": "EA-CENTR"
+                        },
+                        {
+                            "name": "EA-NECHR"
+                        },
+                        {
+                            "name": "EA-U.C"
+                        },
+                        {
+                            "name": "ALMG-LNKAFREE"
+                        },
+                        {
+                            "name": "RSONBLULNKA"
+                        },
+                        {
+                            "name": "EA-CENTRLNKA"
+                        }
+                    ]
+                },
+                {
+                    "name": "EA-PAVLHTL",
+                    "children": [
+                        {
+                            "name": "PCH-STASND"
+                        },
+                        {
+                            "name": "PCH-KALL"
+                        },
+                        {
+                            "name": "EA-CENTR"
+                        },
+                        {
+                            "name": "EA-NECHR"
+                        },
+                        {
+                            "name": "EA-U.C"
+                        },
+                        {
+                            "name": "ALMG-LNKAFREE"
+                        },
+                        {
+                            "name": "RSONBLULNKA"
+                        },
+                        {
+                            "name": "EA-CENTRLNKA"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "P",
+            "children": [
+                {
+                    "name": "EA-FIG",
+                    "children": [
+                        {
+                            "name": "PCH-STASND"
+                        },
+                        {
+                            "name": "PCH-KALL"
+                        },
+                        {
+                            "name": "EA-CENTR"
+                        },
+                        {
+                            "name": "EA-NECHR"
+                        },
+                        {
+                            "name": "EA-U.C"
+                        },
+                        {
+                            "name": "ALMG-LNKAFREE"
+                        },
+                        {
+                            "name": "RSONBLULNKA"
+                        },
+                        {
+                            "name": "EA-CENTRLNKA"
+                        },
+                        {
+                            "name": "EA-PSARLM"
+                        }
+                    ]
+                },
+                {
+                    "name": "EA-FLMNGO",
+                    "children": [
+                        {
+                            "name": "PCH-STASND"
+                        },
+                        {
+                            "name": "PCH-KALL"
+                        },
+                        {
+                            "name": "EA-CENTR"
+                        },
+                        {
+                            "name": "EA-NECHR"
+                        },
+                        {
+                            "name": "EA-U.C"
+                        },
+                        {
+                            "name": "ALMG-LNKAFREE"
+                        },
+                        {
+                            "name": "RSONBLULNKA"
+                        },
+                        {
+                            "name": "EA-CENTRLNKA"
+                        },
+                        {
+                            "name": "EA-PSARLM"
+                        }
+                    ]
+                },
+                {
+                    "name": "LDL-PROT",
+                    "children": [
+                        {
+                            "name": "PCH-STASND"
+                        },
+                        {
+                            "name": "PCH-KALL"
+                        },
+                        {
+                            "name": "EA-CENTR"
+                        },
+                        {
+                            "name": "EA-NECHR"
+                        },
+                        {
+                            "name": "EA-U.C"
+                        },
+                        {
+                            "name": "ALMG-LNKAFREE"
+                        },
+                        {
+                            "name": "RSONBLULNKA"
+                        },
+                        {
+                            "name": "EA-CENTRLNKA"
+                        },
+                        {
+                            "name": "EA-PSARLM"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
