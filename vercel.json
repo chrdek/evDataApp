@@ -1,5 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+    "rewrites": [
+    {
+      "source": "/",
+      "destination": "/d3_EvchargingApp.html"
+    }
+  ],
+  "cleanUrls": true,
   "headers": [
     {
       "source": "/(.*)",
