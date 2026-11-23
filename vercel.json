@@ -6,7 +6,7 @@
       "destination": "/d3_EvchargingApp.html"
     }
   ],
-  "cleanUrls": true,
+  "cleanUrls": false,
   "headers": [
     {
       "source": "/(.*)",
