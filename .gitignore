@@ -1,4 +1,5 @@
 coverage/
+.amazonq/
 .idea/
 .vscode/
 dist/
